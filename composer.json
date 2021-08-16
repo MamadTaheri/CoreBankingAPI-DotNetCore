@@ -1,0 +1,18 @@
+{
+    "name": "persianjson.ir/cms",
+    "description": "An Example for Composer Package",
+    "authors": [
+        {
+            "name": "Mohammad Taheri",
+            "email": "mamad.taheri.68@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Roocket\\Cms\\" : "src/"
+        }
+    },
+    "require": {
+        "illuminate/support": "~5"
+    }
+}

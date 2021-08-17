@@ -1,7 +1,7 @@
-<?php
+an<?php
 
 return [
-    'url' => 'roocket.ir/adminpanel',
+    'url' => 'persianjson.ir/adminpanel',
 
-    'name' => 'roocket'
+    'name' => 'Mohammad.Taheri'
 ];

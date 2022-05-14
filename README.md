@@ -1,3 +1,3 @@
-# CoreBankingAPI-.NET6
+# CoreBankingAPI-DotNetCore
 
 ## This is just a test project

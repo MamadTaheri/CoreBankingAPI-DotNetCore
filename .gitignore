@@ -13,3 +13,4 @@ bin
 *.user
 *.csproj.user
 ~$Doc.docx
+*.tmp

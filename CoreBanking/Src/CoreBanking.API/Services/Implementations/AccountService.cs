@@ -7,11 +7,13 @@ namespace CoreBanking.API.Services.Implementations
 {
     public class AccountService : IAccountService
     {
+        private readonly CoreBankingDbContext _dbContext;
+
         // Dependency Injection in Class Constructor
         // تزریق وابستگی درون سازنده کلاس 
-        public AccountService()
+        public AccountService(CoreBankingDbContext dbContext)
         {
-
+            _dbContext = dbContext;
         }
        
         public Account Authenticate(string AccountNumber, string pin)

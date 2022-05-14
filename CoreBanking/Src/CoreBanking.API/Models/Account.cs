@@ -17,6 +17,12 @@ namespace CoreBanking.API.Models
         public byte[] PinSalt { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateLastUpdated { get; set; }
+        Random random = new Random();
+
+        public Account()
+        {
+            AccountNumberGenerated = Convert.ToString((long)random.NextDouble * 9_000_000_000L + 1_000_000_000L);
+        }
     }
 
     public enum AccountType

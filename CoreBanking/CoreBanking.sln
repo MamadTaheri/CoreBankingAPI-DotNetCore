@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{55ECD7CF-79B6-4BE2-A24D-FD4FB20D3457}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{080EB118-A728-41D7-B9F2-F9DA817B7ABB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{E4F1B949-5C64-47C0-A389-87A552B1AB85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreBanking.API", "Src\CoreBanking.API\CoreBanking.API.csproj", "{BCA95BBD-011D-448D-ACD2-8143215880CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCA95BBD-011D-448D-ACD2-8143215880CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCA95BBD-011D-448D-ACD2-8143215880CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCA95BBD-011D-448D-ACD2-8143215880CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCA95BBD-011D-448D-ACD2-8143215880CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BCA95BBD-011D-448D-ACD2-8143215880CC} = {55ECD7CF-79B6-4BE2-A24D-FD4FB20D3457}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A370A09-9E67-4BBF-BA81-B3318B0757F8}
+	EndGlobalSection
+EndGlobal

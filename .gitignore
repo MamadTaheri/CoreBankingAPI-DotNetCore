@@ -12,3 +12,4 @@ bin
 **/data-mssql
 *.user
 *.csproj.user
+~$Doc.docx

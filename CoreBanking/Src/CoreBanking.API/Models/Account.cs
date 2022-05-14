@@ -1,9 +1,13 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CoreBanking.API.Models
 {
+    [Table("Accounts")]
     public class Account
     {
+        [Key]
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -21,7 +25,11 @@ namespace CoreBanking.API.Models
 
         public Account()
         {
-            AccountNumberGenerated = Convert.ToString((long)random.NextDouble * 9_000_000_000L + 1_000_000_000L);
+            // Generate Account Name
+            AccountName = $"{FirstName} {LastName}";
+
+            // Generate Account Number
+            AccountNumberGenerated = Convert.ToString((long) random.NextDouble() * 9_000_000_000L + 1_000_000_000L);
         }
     }
 

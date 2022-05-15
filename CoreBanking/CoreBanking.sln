@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{E4F1B949-5C6
 		Doc\Doc.docx = Doc\Doc.docx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreBanking.API", "Src\CoreBanking.API\CoreBanking.API.csproj", "{BCA95BBD-011D-448D-ACD2-8143215880CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreBanking.API", "Src\CoreBanking.API\CoreBanking.API.csproj", "{BCA95BBD-011D-448D-ACD2-8143215880CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

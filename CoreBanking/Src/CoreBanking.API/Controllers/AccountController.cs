@@ -20,7 +20,7 @@ namespace CoreBanking.API.Controllers
 
         [HttpPost]
         [Route("register_new_account")]
-        public IActionResult RegisterNewAccount([FromBody] RegisterNewAccountModel newAccount)
+        public IActionResult RegisterNewAccount([FromBody] RegisterNewAccountDTO newAccount)
         {
             if(!ModelState.IsValid) return BadRequest(newAccount);
 
@@ -35,8 +35,17 @@ namespace CoreBanking.API.Controllers
         {
             // map Accunt Model to GetAccountModel
             var accounts = _accountService.GetAllAccounts();
-            var cleanedAccounts = _mapper.Map<IList<GetAccountModel>>(accounts);
+            var cleanedAccounts = _mapper.Map<IList<GetAccountDTO>>(accounts);
             return Ok(cleanedAccounts);
+        }
+
+        [HttpPost]
+        [Route("authenticate")]
+        public IActionResult Authenticate([FromBody] AuthenticateDTO model)
+        {
+            if (!ModelState.IsValid) return BadRequest(model);
+
+            return Ok(_accountService.Authenticate(model.AccountNumber, model.Pin));
         }
 
     }

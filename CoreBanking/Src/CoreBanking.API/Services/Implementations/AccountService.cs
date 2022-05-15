@@ -140,10 +140,10 @@ namespace CoreBanking.API.Services.Implementations
             {
                 byte[] pinHash, pinSalt;
                 CreatePinHash(pin, out pinHash, out pinSalt);
-                
                 accountToBeUpdated.PinHash = pinHash;
                 accountToBeUpdated.PinSalt = pinSalt;
             }
+            accountToBeUpdated.DateLastUpdated = DateTime.Now;
             _dbContext.Accounts.Update(accountToBeUpdated);
             _dbContext.SaveChanges();
         }

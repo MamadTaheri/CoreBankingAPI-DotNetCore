@@ -7,9 +7,9 @@ namespace CoreBanking.API.Profiles
     {
         public AutoMapperProfiles()
         {
-            CreateMap<RegisterNewAccountModel, Account>();
-            CreateMap<UpdateAccountModel, Account>();
-            CreateMap<Account, GetAccountModel>();
+            CreateMap<RegisterNewAccountDTO, Account>();
+            CreateMap<UpdateAccountDTO, Account>();
+            CreateMap<Account, GetAccountDTO>();
         }
     }
 }

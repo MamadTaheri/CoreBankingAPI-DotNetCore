@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CoreBanking.API.Models
 {
-    public class RegisterNewAccountModel
+    public class RegisterNewAccountDTO
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -18,7 +18,7 @@ namespace CoreBanking.API.Models
         public DateTime DateCreated { get; set; }
         public DateTime DateLastUpdated { get; set; }
         [Required]
-        [RegularExpression(@"^[0-9]/d{4}$", ErrorMessage = "Pin must not be more than 4 digits")] // 4-digit string
+        [RegularExpression(@"^[0-9]\d{4}$", ErrorMessage = "Pin must not be more than 4 digits")] // 4-digit string
         public string Pin { get; set; }
         [Required]
         [Compare("Pin", ErrorMessage = "Pins do not match")]

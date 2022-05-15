@@ -5,10 +5,10 @@ namespace CoreBanking.API.Services.Interfaces
 {
     public interface ITransactionService
     {
-        Response CreateNewTransaction(Transaction transaction);
-        Response FindTransactionByDate(DateTime date);
-        Response MakeDeposit(string AccountNumber, decimal Amount, string TransactionPin);
-        Response MakeWithDrawal(string AccountNumber, decimal Amount, string TransactionPin);
-        Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount, string TransactionPin);
+        ResponseDTO CreateNewTransaction(Transaction transaction);
+        ResponseDTO FindTransactionByDate(DateTime date);
+        ResponseDTO MakeDeposit(string AccountNumber, decimal Amount, string TransactionPin);
+        ResponseDTO MakeWithDrawal(string AccountNumber, decimal Amount, string TransactionPin);
+        ResponseDTO MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount, string TransactionPin);
     }
 }

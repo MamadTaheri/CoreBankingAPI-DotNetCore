@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CoreBanking.API.Models
 {
-    public class GetAccountModel
+    public class GetAccountDTO
     {
         [Key]
         public int Id { get; set; }

@@ -2,7 +2,7 @@
 
 namespace CoreBanking.API.Models
 {
-    public class Response
+    public class ResponseDTO
     {
         public string RequestId => $"{Guid.NewGuid().ToString()}";
         public string ResponseCode { get; set; }

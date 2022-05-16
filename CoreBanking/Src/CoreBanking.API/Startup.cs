@@ -1,4 +1,6 @@
 using CoreBanking.API.DAL;
+using CoreBanking.API.Services.Implementations;
+using CoreBanking.API.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,11 +31,26 @@ namespace CoreBanking.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<CoreBankingDbContext>(q => q.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
+            
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddSwaggerGen(q =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CoreBanking.API", Version = "v1" });
+                q.SwaggerDoc("v2", new OpenApiInfo 
+                { 
+                    Title = "This is The doc of CoreBanking API Project", 
+                    Version = "v2",
+                    Description = "Built by mohammad Taheri @2022",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Mohammad Taheri",
+                        Email = "mamad.taheri.68@gmail.com",
+                        Url = new Uri("https://github.com/MamadTaheri68")
+                    }
+                });
             });
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,8 +59,6 @@ namespace CoreBanking.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CoreBanking.API v1"));
             }
 
             app.UseHttpsRedirection();
@@ -51,6 +66,12 @@ namespace CoreBanking.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(q =>
+            {
+                q.SwaggerEndpoint("/swagger/v2/swagger.json", "This is The doc of CoreBanking API Project");
+            });
 
             app.UseEndpoints(endpoints =>
             {

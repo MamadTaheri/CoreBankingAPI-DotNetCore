@@ -60,5 +60,27 @@ namespace CoreBanking.API.Controllers
             return Ok(cleanedAccount);
         }
 
+        [HttpGet]
+        [Route("get_account_by_id")]
+        public IActionResult GetAccountById(int Id)
+        {
+            
+            var account = _accountService.GetById(Id);
+            var cleanedAccount = _mapper.Map<GetAccountDTO>(account);
+            return Ok(cleanedAccount);
+        }
+
+        [HttpPut]
+        [Route("update_account")]
+        public IActionResult UpdateAccount([FromBody] UpdateAccountDTO model)
+        {
+            if(!ModelState.IsValid) 
+                return BadRequest(model);
+            
+            var account = _mapper.Map<Account>(model);
+            _accountService.Update(account, model.Pin);
+            return Ok();
+        }
+
     }
 }

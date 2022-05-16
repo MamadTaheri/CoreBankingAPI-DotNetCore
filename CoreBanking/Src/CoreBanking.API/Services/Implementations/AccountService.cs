@@ -119,7 +119,7 @@ namespace CoreBanking.API.Services.Implementations
 
         public void Update(Account account, string pin = null)
         {
-            var accountToBeUpdated = _dbContext.Accounts.Where(q => q.Email == account.Email).SingleOrDefault();
+            var accountToBeUpdated = _dbContext.Accounts.Find(account.Id);
             if (accountToBeUpdated == null)
             {
                 throw new ApplicationException("Account does not exist");

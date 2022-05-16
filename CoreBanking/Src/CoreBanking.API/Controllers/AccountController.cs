@@ -3,6 +3,7 @@ using CoreBanking.API.Models;
 using CoreBanking.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace CoreBanking.API.Controllers
 {
@@ -46,6 +47,17 @@ namespace CoreBanking.API.Controllers
             if (!ModelState.IsValid) return BadRequest(model);
 
             return Ok(_accountService.Authenticate(model.AccountNumber, model.Pin));
+        }
+
+        [HttpGet]
+        [Route("get_by_account_number")]
+        public IActionResult GetByAccountNumber(string AccountNumber)
+        {
+            if (!Regex.IsMatch(AccountNumber, @"^[0][1-9]\d{9}$|^[1-9]\d{9}$"))
+                return BadRequest("Account Number must be 10-digit");
+            var account = _accountService.GetByAccountNumber(AccountNumber);
+            var cleanedAccount = _mapper.Map<GetAccountDTO>(account);
+            return Ok(cleanedAccount);
         }
 
     }

@@ -156,9 +156,9 @@ namespace CoreBanking.API.Services.Implementations
                 _logger.LogError($"AN ERROR OCCURRED... => { ex.Message}");
             }
 
-            transaction.TransactionType = TranType.Withdrawal;
-            transaction.TransactionSourceAccount = AccountNumber;
-            transaction.TransactionDestinationAccount = _ourBankSettlementAccount;
+            transaction.TransactionType = TranType.Transfer;
+            transaction.TransactionSourceAccount = FromAccount;
+            transaction.TransactionDestinationAccount = ToAccount;
             transaction.TransactionAmount = Amount;
             transaction.TransactionDate = DateTime.Now;
             transaction.TransactionParticulars = $"NEW TRANSACTION " +

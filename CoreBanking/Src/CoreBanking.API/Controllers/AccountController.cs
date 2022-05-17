@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 namespace CoreBanking.API.Controllers
 {
     [ApiController]
-    [Route("api/v3/[controller]")]
+    [Route("api/v2/[controller]")]
     public class AccountController : ControllerBase
     {
         private IAccountService _accountService;

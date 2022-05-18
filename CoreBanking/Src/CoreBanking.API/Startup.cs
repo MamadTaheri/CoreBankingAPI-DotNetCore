@@ -1,6 +1,7 @@
 using CoreBanking.API.DAL;
 using CoreBanking.API.Services.Implementations;
 using CoreBanking.API.Services.Interfaces;
+using CoreBanking.API.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,7 +34,9 @@ namespace CoreBanking.API
             services.AddDbContext<CoreBankingDbContext>(q => q.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<ITransactionService, TransactionService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddSwaggerGen(q =>
             {
                 q.SwaggerDoc("v2", new OpenApiInfo 

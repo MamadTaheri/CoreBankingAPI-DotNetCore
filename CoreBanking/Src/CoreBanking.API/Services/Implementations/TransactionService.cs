@@ -103,8 +103,8 @@ namespace CoreBanking.API.Services.Implementations
                 $"FROM SOURCE => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} " +
                 $" TO DESTINATION ACCOUNT => {JsonConvert.SerializeObject(transaction.TransactionDestinationAccount)} " +
                 $" ON DATE {transaction.TransactionDate} FOR AMOUNT => {JsonConvert.SerializeObject(transaction.TransactionAmount)} " +
-                $" TRANSACTION TYPE => {JsonConvert.SerializeObject(transaction.TransactionType)}" +
-                $" TRANSACTION STATUS => {JsonConvert.SerializeObject(transaction.TransactionStatus)}";
+                $" TRANSACTION TYPE => {transaction.TransactionType}" +
+                $" TRANSACTION STATUS => {transaction.TransactionStatus}";
 
             _dbContext.Transactions.Add(transaction);
             _dbContext.SaveChanges();
@@ -129,8 +129,8 @@ namespace CoreBanking.API.Services.Implementations
                 sourceAccount = _accountService.GetByAccountNumber(FromAccount);
                 destinationAccount = _accountService.GetByAccountNumber(ToAccount);
 
-                sourceAccount.CurrentAccountBalance += Amount;
-                destinationAccount.CurrentAccountBalance -= Amount;
+                sourceAccount.CurrentAccountBalance -= Amount;
+                destinationAccount.CurrentAccountBalance += Amount;
 
                 if ((_dbContext.Entry(sourceAccount).State == EntityState.Modified) &&
                     (_dbContext.Entry(destinationAccount).State == EntityState.Modified))
@@ -165,8 +165,8 @@ namespace CoreBanking.API.Services.Implementations
                 $"FROM SOURCE => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} " +
                 $" TO DESTINATION ACCOUNT => {JsonConvert.SerializeObject(transaction.TransactionDestinationAccount)} " +
                 $" ON DATE {transaction.TransactionDate} FOR AMOUNT => {JsonConvert.SerializeObject(transaction.TransactionAmount)} " +
-                $" TRANSACTION TYPE => {JsonConvert.SerializeObject(transaction.TransactionType)}" +
-                $" TRANSACTION STATUS => {JsonConvert.SerializeObject(transaction.TransactionStatus)}";
+                $" TRANSACTION TYPE => {transaction.TransactionType}" +
+                $" TRANSACTION STATUS => {transaction.TransactionStatus}";
 
             _dbContext.Transactions.Add(transaction);
             _dbContext.SaveChanges();
@@ -226,8 +226,8 @@ namespace CoreBanking.API.Services.Implementations
                 $"FROM SOURCE => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} " +
                 $" TO DESTINATION ACCOUNT => {JsonConvert.SerializeObject(transaction.TransactionDestinationAccount)} " +
                 $" ON DATE {transaction.TransactionDate} FOR AMOUNT => {JsonConvert.SerializeObject(transaction.TransactionAmount)} " +
-                $" TRANSACTION TYPE => {JsonConvert.SerializeObject(transaction.TransactionType)}" +
-                $" TRANSACTION STATUS => {JsonConvert.SerializeObject(transaction.TransactionStatus)}";
+                $" TRANSACTION TYPE => {transaction.TransactionType}" +
+                $" TRANSACTION STATUS => {transaction.TransactionStatus}";
 
             _dbContext.Transactions.Add(transaction);
             _dbContext.SaveChanges();
